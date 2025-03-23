@@ -54,6 +54,7 @@
         <value type="string" value="blueman"/>
       </property>
       <property name="known-legacy-items" type="array">
+        <value type="string" value="redshift-gtk"/>
         <value type="string" value="xfce4-power-manager"/>
         <value type="string" value="blueman"/>
       </property>
@@ -95,7 +96,7 @@
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
       <property name="play-sound" type="bool" value="true"/>
       <property name="mixer-command" type="string" value="pavucontrol"/>
-      <property name="known-players" type="string" value="Firefox;LibreWolf"/>
+      <property name="known-players" type="string" value="Firefox;LibreWolf;qutebrowser"/>
     </property>
     <property name="plugin-2" type="string" value="xkb">
       <property name="display-type" type="uint" value="1"/>

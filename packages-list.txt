@@ -7,6 +7,7 @@ cryptsetup
 curl
 docker
 docker-compose
+fastfetch
 firefox
 flatpak
 fzf
@@ -22,12 +23,15 @@ lightdm
 linux-firmware
 lvm2
 lxappearance
-neofetch
+mpv
 neovim
 nerd-fonts
 nitrogen
+pdf.js
 picom
 pipewire
+qutebrowser
+redshift-gtk
 ripgrep
 sof-firmware
 starship
@@ -51,4 +55,5 @@ xorg
 xtools
 xz
 yazi
+youtube-dl
 zellij

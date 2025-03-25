@@ -25,7 +25,7 @@
         <value type="int" value="9"/>
         <value type="int" value="8"/>
       </property>
-      <property name="background-style" type="uint" value="0"/>
+      <property name="background-style" type="uint" value="1"/>
       <property name="enter-opacity" type="uint" value="100"/>
       <property name="leave-opacity" type="uint" value="100"/>
       <property name="mode" type="uint" value="0"/>
@@ -88,6 +88,8 @@
       <property name="recent" type="array">
         <value type="string" value="firefox.desktop"/>
       </property>
+      <property name="button-single-row" type="bool" value="false"/>
+      <property name="button-icon" type="string" value="xfce4-logo"/>
     </property>
     <property name="plugin-13" type="string" value="separator">
       <property name="style" type="uint" value="0"/>

@@ -31,6 +31,7 @@ nushell
 pdf.js
 picom
 pipewire
+poppler-utils
 qutebrowser
 redshift-gtk
 ripgrep

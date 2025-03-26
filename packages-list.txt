@@ -37,7 +37,6 @@ qutebrowser
 redshift-gtk
 ripgrep
 sof-firmware
-starship
 stow
 swayfx
 swaylock

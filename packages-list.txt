@@ -1,3 +1,4 @@
+alacritty
 arc-theme
 base-system
 blueman

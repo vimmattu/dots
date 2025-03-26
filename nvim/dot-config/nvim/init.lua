@@ -208,6 +208,25 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+vim.api.nvim_create_autocmd('ColorScheme', {
+  callback = function()
+    local highlights = {
+      'Normal',
+      'LineNr',
+      'Folded',
+      'NonText',
+      'SpecialKey',
+      'VertSplit',
+      'SignColumn',
+      'EndOfBuffer',
+      'TablineFill', -- this is specific to how I like my tabline to look like
+    }
+    for _, name in pairs(highlights) do
+      vim.cmd.highlight(name .. ' guibg=none ctermbg=none')
+    end
+  end,
+})
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'

@@ -8,4 +8,4 @@ PS1='[\u@\h \W]\$ '
 
 eval "$(starship init bash)"
 eval "$(fzf --bash)"
-eval "$(zellij setup --generate-auto-start bash)"
+# eval "$(zellij setup --generate-auto-start bash)"

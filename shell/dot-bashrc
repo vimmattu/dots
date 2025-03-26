@@ -9,3 +9,11 @@ PS1='[\u@\h \W]\$ '
 eval "$(starship init bash)"
 eval "$(fzf --bash)"
 # eval "$(zellij setup --generate-auto-start bash)"
+
+if [ -d ~/.bashrc.d ]; then
+    for rc in ~/.bashrc.d/*; do
+        if [ -f "$rc" ]; then
+            . "$rc"
+        fi
+    done
+fi

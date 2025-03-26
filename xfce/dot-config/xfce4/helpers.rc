@@ -1,2 +1,3 @@
-TerminalEmulator=kitty
+TerminalEmulator=alacritty
+WebBrowser=chromium
 

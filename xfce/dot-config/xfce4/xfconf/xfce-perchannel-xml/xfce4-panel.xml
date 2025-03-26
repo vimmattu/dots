@@ -6,7 +6,7 @@
     <value type="int" value="1"/>
     <property name="dark-mode" type="bool" value="false"/>
     <property name="panel-1" type="empty">
-      <property name="position" type="string" value="p=8;x=960;y=1063"/>
+      <property name="position" type="string" value="p=6;x=1280;y=15"/>
       <property name="length" type="double" value="100"/>
       <property name="position-locked" type="bool" value="true"/>
       <property name="icon-size" type="uint" value="0"/>
@@ -86,6 +86,8 @@
       <property name="view-mode" type="int" value="2"/>
       <property name="launcher-show-name" type="bool" value="true"/>
       <property name="recent" type="array">
+        <value type="string" value="xfce4-mime-settings.desktop"/>
+        <value type="string" value="xfce4-settings-editor.desktop"/>
         <value type="string" value="firefox.desktop"/>
       </property>
       <property name="button-single-row" type="bool" value="false"/>

@@ -3,6 +3,7 @@ arc-theme
 base-system
 blueman
 bluez
+bluez-hid2hci
 chromium
 cryptsetup
 curl

@@ -86,12 +86,39 @@
       <property name="view-mode" type="int" value="2"/>
       <property name="launcher-show-name" type="bool" value="true"/>
       <property name="recent" type="array">
+        <value type="string" value="xfce4-taskmanager.desktop"/>
+        <value type="string" value="redshift-gtk.desktop"/>
+        <value type="string" value="xfce4-screenshooter.desktop"/>
+        <value type="string" value="org.xfce.mousepad.desktop"/>
+        <value type="string" value="nm-connection-editor.desktop"/>
         <value type="string" value="xfce4-mime-settings.desktop"/>
         <value type="string" value="xfce4-settings-editor.desktop"/>
         <value type="string" value="firefox.desktop"/>
       </property>
       <property name="button-single-row" type="bool" value="false"/>
       <property name="button-icon" type="string" value="void-logo-notext"/>
+      <property name="show-command-shutdown" type="bool" value="true"/>
+      <property name="profile-shape" type="int" value="0"/>
+      <property name="position-search-alternate" type="bool" value="true"/>
+      <property name="position-profile-alternate" type="bool" value="false"/>
+      <property name="stay-on-focus-out" type="bool" value="true"/>
+      <property name="hover-switch-category" type="bool" value="true"/>
+      <property name="show-command-profile" type="bool" value="false"/>
+      <property name="position-categories-alternate" type="bool" value="true"/>
+      <property name="position-categories-horizontal" type="bool" value="false"/>
+      <property name="position-commands-alternate" type="bool" value="true"/>
+      <property name="launcher-icon-size" type="int" value="2"/>
+      <property name="category-icon-size" type="int" value="1"/>
+      <property name="launcher-show-description" type="bool" value="true"/>
+      <property name="menu-opacity" type="int" value="100"/>
+      <property name="default-category" type="int" value="0"/>
+      <property name="favorites" type="array">
+        <value type="string" value="xfce4-web-browser.desktop"/>
+        <value type="string" value="xfce4-mail-reader.desktop"/>
+        <value type="string" value="xfce4-file-manager.desktop"/>
+        <value type="string" value="xfce4-terminal-emulator.desktop"/>
+        <value type="string" value="org.xfce.ristretto.desktop"/>
+      </property>
     </property>
     <property name="plugin-13" type="string" value="separator">
       <property name="style" type="uint" value="0"/>

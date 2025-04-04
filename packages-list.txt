@@ -30,6 +30,7 @@ linux-firmware
 lvm2
 lxappearance
 mpv
+mugshot
 neovim
 nerd-fonts
 network-manager-applet

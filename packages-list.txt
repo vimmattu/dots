@@ -1,3 +1,5 @@
+NetworkManager
+NetworkManager-openvpn
 aardvark-dns
 alacritty
 arc-theme
@@ -30,6 +32,7 @@ lxappearance
 mpv
 neovim
 nerd-fonts
+network-manager-applet
 nitrogen
 nushell
 obs

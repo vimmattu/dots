@@ -18,6 +18,7 @@ firefox
 flatpak
 fzf
 git
+gnome-ssh-askpass
 grub-x86_64-efi
 htop
 i3

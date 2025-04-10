@@ -4,6 +4,7 @@ aardvark-dns
 alacritty
 arc-theme
 base-system
+bash-completion
 blueman
 bluez
 bluez-hid2hci
@@ -19,6 +20,7 @@ flatpak
 fzf
 git
 gnome-ssh-askpass
+go
 grub-x86_64-efi
 htop
 i3

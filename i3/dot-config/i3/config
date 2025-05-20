@@ -187,7 +187,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-gaps inner 5
+# gaps inner 5
 
 for_window [instance=xfce4-appfinder] floating enable
 

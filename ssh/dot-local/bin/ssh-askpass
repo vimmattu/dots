@@ -1,0 +1,2 @@
+#!/sbin/zsh
+/usr/bin/zenity --title ssh-askpass --question --text "A program requires a key from the SSH agent. Approve?"

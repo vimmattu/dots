@@ -1,0 +1,18 @@
+[Unit]
+Description=GCR ssh-agent wrapper
+
+Requires=gcr-ssh-agent.socket
+
+[Service]
+Type=simple
+StandardError=journal
+Environment=SSH_ASKPASS=/home/joel/.local/bin/ssh-askpass
+Environment=SSH_AUTH_SOCK=%t/gcr/ssh
+Environment=DISPLAY=:0
+Environment=WAYLAND_DISPLAY=wayland-1
+ExecStart=/usr/lib/gcr-ssh-agent --base-dir %t/gcr
+Restart=on-failure
+
+[Install]
+Also=gcr-ssh-agent.socket
+WantedBy=default.target

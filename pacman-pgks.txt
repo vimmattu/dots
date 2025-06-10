@@ -1,0 +1,15 @@
+zellij
+neovim
+corectrl
+syncthing
+keepassxc
+lazygit
+gnome-keyring
+dkms
+mako
+ttf-iosevkaterm-nerd
+polkit
+librewolf
+feh
+go
+flatpak

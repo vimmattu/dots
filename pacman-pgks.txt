@@ -13,3 +13,8 @@ librewolf
 feh
 go
 flatpak
+docker
+docker-compose
+slurp
+grim
+thunar

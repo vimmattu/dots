@@ -16,6 +16,8 @@ PS1="\n\[\e[2m\]\t\[\e[0m\] \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033
 
 eval "$(fzf --bash)"
 export EDITOR=nvim
+export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/gcr/ssh
+export SSH_ASKPASS=$HOME/.local/bin/ssh-askpass
 
 if [ -d ~/.bashrc.d ]; then
     for rc in ~/.bashrc.d/*; do

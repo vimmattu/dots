@@ -18,3 +18,17 @@ docker-compose
 slurp
 grim
 thunar
+brightnessctl
+stow
+zenity
+swaylock
+base-devel
+ncurses
+glu
+mesa
+wxwidgets-gtk3
+libpng
+libssh
+unixodbc
+libxslt
+fop

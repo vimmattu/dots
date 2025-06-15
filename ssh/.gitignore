@@ -1,0 +1,5 @@
+*
+!.gitignore
+!./dot-local/
+!./dot-local/bin/
+!./dot-local/bin/ssh-askpass

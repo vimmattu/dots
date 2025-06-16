@@ -1,10 +1,8 @@
 [general]
 import = [
-	"~/.config/alacritty/theme.toml"
+	"~/.config/alacritty/theme.toml",
+	"~/.config/alacritty/opacity.toml"
 ]
-
-[window]
-opacity = 1.0
 
 [font]
 size = 17

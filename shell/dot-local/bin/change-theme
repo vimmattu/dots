@@ -4,6 +4,7 @@ THEME_DIR="$HOME/.config/themes"
 TARGET_FOOT="$HOME/.config/foot/theme.ini"
 TARGET_NVIM="$HOME/.config/nvim/lua/custom/plugins/theme.lua"
 TARGET_ALACRITTY="$HOME/.config/alacritty/theme.toml"
+TARGET_WAYBAR="$HOME/.config/waybar/theme.css"
 
 selected=$(ls "$THEME_DIR" | wmenu -p "Select theme:")
 
@@ -21,9 +22,11 @@ if [[ -n "$selected" ]]; then
     ln -sf "$THEME_DIR/$selected/foot.ini" "$TARGET_FOOT"
     ln -sf "$THEME_DIR/$selected/nvim.lua" "$TARGET_NVIM"
     ln -sf "$THEME_DIR/$selected/alacritty.toml" "$TARGET_ALACRITTY"
+    ln -sf "$THEME_DIR/$selected/waybar.css" "$TARGET_WAYBAR"
     # NOTE: triggers alacritty hot reload
     touch ~/.config/alacritty/alacritty.toml
 
     notify_all_nvim_instances
     notify-send "Theme switched to $selected"
+    pkill -SIGUSR2 waybar
 fi

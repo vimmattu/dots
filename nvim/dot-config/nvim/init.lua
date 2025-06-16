@@ -673,6 +673,8 @@ require('lazy').setup({
   'shaunsingh/nord.nvim',
   'catppuccin/nvim',
   'NLKNguyen/papercolor-theme',
+  'yorickpeterse/vim-paper',
+  'neanias/everforest-nvim',
 }, {
   ui = {
     icons = vim.g.have_nerd_font and {} or {

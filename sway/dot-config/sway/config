@@ -38,6 +38,7 @@ include /etc/sway/config.d/*
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 exec --no-startup-id mako
+exec_always nm-applet --indicator
 # exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
 
 # Use pactl to adjust volume in PulseAudio.
@@ -195,6 +196,7 @@ bindsym $mod+r mode "resize"
 bindsym $mod+Mod1+d exec "~/.local/bin/toggle-output"
 bindsym $mod+Mod1+l exec "~/.local/bin/select-language"
 bindsym $mod+Mod1+e exec "~/.local/bin/emoji-picker"
+bindsym $mod+Mod1+o exec "~/.local/bin/change-opacity"
 bindsym $mod+Print exec "~/.local/bin/take-screenshot"
 bindsym $mod+t exec "~/.local/bin/change-theme"
 

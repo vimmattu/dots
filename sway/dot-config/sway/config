@@ -55,7 +55,7 @@ floating_modifier $mod
 #tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec foot
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -196,6 +196,7 @@ bindsym $mod+Mod1+d exec "~/.local/bin/toggle-output"
 bindsym $mod+Mod1+l exec "~/.local/bin/select-language"
 bindsym $mod+Mod1+e exec "~/.local/bin/emoji-picker"
 bindsym $mod+Print exec "~/.local/bin/take-screenshot"
+bindsym $mod+t exec "~/.local/bin/change-theme"
 
 # gaps inner 5
 

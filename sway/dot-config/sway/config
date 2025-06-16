@@ -195,6 +195,7 @@ bindsym $mod+r mode "resize"
 bindsym $mod+Mod1+d exec "~/.local/bin/toggle-output"
 bindsym $mod+Mod1+l exec "~/.local/bin/select-language"
 bindsym $mod+Mod1+e exec "~/.local/bin/emoji-picker"
+bindsym $mod+Print exec "~/.local/bin/take-screenshot"
 
 # gaps inner 5
 

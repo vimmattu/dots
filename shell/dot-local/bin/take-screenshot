@@ -1,0 +1,7 @@
+#!/usr/bin/bash
+filepath=$(xdg-user-dir PICTURES)/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')
+
+if selection=$(slurp); then
+	grim -g "$selection" "$filepath"
+	notify-send "Saved screenshot in $filepath"
+fi

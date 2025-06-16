@@ -32,3 +32,6 @@ libssh
 unixodbc
 libxslt
 fop
+xdg-session-portal
+xdg-session-portal-wlr
+wtype

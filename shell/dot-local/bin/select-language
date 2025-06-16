@@ -1,0 +1,2 @@
+#!/usr/bin/bash
+swaymsg input type:keyboard xkb_layout $(echo -e "fi\nus" | wmenu)

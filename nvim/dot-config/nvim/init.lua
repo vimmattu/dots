@@ -675,6 +675,7 @@ require('lazy').setup({
   'NLKNguyen/papercolor-theme',
   'yorickpeterse/vim-paper',
   'neanias/everforest-nvim',
+  'rebelot/kanagawa.nvim',
 }, {
   ui = {
     icons = vim.g.have_nerd_font and {} or {

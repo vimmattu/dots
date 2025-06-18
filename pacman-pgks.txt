@@ -33,3 +33,4 @@ unixodbc
 libxslt
 fop
 wtype
+swaybg

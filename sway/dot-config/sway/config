@@ -39,6 +39,7 @@ include /etc/sway/config.d/*
 exec --no-startup-id nm-applet
 exec --no-startup-id mako
 exec_always nm-applet --indicator
+exec_always swaybg -i $(find ~/.local/share/backgrounds/* | shuf -n 1) -m fill
 # exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
 
 # Use pactl to adjust volume in PulseAudio.

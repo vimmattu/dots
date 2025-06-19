@@ -203,6 +203,16 @@ bindsym $mod+t exec "~/.local/bin/change-theme"
 
 # gaps inner 5
 
+blur enable
+corner_radius 4
+shadows enable
+blur_passes 3
+blur_radius 3
+
+layer_effects "waybar" {
+  blur enable
+}
+
 for_window [instance=xfce4-appfinder] floating enable
 
 default_border pixel

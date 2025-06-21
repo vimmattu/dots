@@ -18,7 +18,8 @@ eval "$(fzf --bash)"
 export EDITOR=nvim
 export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/gcr/ssh
 export SSH_ASKPASS=$HOME/.local/bin/ssh-askpass
-export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.local/scripts/bin:$PATH
+export PATH=$HOME/.local/tools/bin:$PATH
 
 if [ -d ~/.bashrc.d ]; then
     for rc in ~/.bashrc.d/*; do

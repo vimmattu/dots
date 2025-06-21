@@ -194,18 +194,18 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bindsym $mod+Mod1+d exec "~/.local/bin/toggle-output"
-bindsym $mod+Mod1+l exec "~/.local/bin/select-language"
-bindsym $mod+Mod1+e exec "~/.local/bin/emoji-picker"
-bindsym $mod+Mod1+o exec "~/.local/bin/change-opacity"
-bindsym $mod+Print exec "~/.local/bin/take-screenshot"
-bindsym $mod+t exec "~/.local/bin/change-theme"
+bindsym $mod+Mod1+d exec "~/.local/scripts/bin/toggle-output"
+bindsym $mod+Mod1+l exec "~/.local/scripts/bin/select-language"
+bindsym $mod+Mod1+e exec "~/.local/scripts/bin/emoji-picker"
+bindsym $mod+Mod1+o exec "~/.local/scripts/bin/change-opacity"
+bindsym $mod+Print exec "~/.local/scripts/bin/take-screenshot"
+bindsym $mod+t exec "~/.local/scripts/bin/change-theme"
 
 # gaps inner 5
 
 blur enable
 corner_radius 4
-shadows enable
+# shadows enable
 blur_passes 3
 blur_radius 3
 

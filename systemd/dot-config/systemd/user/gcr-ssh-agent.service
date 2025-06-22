@@ -6,7 +6,7 @@ Requires=gcr-ssh-agent.socket
 [Service]
 Type=simple
 StandardError=journal
-Environment=SSH_ASKPASS=/home/joel/.local/bin/ssh-askpass
+Environment=SSH_ASKPASS=/home/joel/.local/scripts/bin/ssh-askpass
 Environment=SSH_AUTH_SOCK=%t/gcr/ssh
 Environment=DISPLAY=:0
 Environment=WAYLAND_DISPLAY=wayland-1

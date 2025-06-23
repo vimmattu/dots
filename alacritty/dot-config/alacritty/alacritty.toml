@@ -4,6 +4,9 @@ import = [
 	"~/.config/alacritty/opacity.toml"
 ]
 
+[window]
+padding={x = 17}
+
 [font]
 size = 17
 normal = { family = "IosevkaTerm Nerd Font Mono", style = "Regular" }

@@ -676,6 +676,7 @@ require('lazy').setup({
   'yorickpeterse/vim-paper',
   'neanias/everforest-nvim',
   'rebelot/kanagawa.nvim',
+  'miikanissi/modus-themes.nvim',
 }, {
   ui = {
     icons = vim.g.have_nerd_font and {} or {
@@ -701,6 +702,9 @@ function LoadDynamicTheme()
   local theme = require 'custom.plugins.theme'
   vim.cmd('colorscheme ' .. theme.colorscheme)
   vim.cmd('set bg=' .. theme.background)
+  if theme.on_load then
+    theme.on_load()
+  end
   vim.notify('Theme changed to ' .. theme.colorscheme .. ' with bg=' .. theme.background)
 end
 LoadDynamicTheme()

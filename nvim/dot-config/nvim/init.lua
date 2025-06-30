@@ -622,6 +622,18 @@ require('lazy').setup({
     end,
   },
 
+  {
+    'uga-rosa/ccc.nvim',
+    config = function()
+      require('ccc').setup {
+        highlighter = {
+          auto_enable = true,
+          lsp = true,
+        },
+      }
+    end,
+  },
+
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 

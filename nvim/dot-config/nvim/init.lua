@@ -689,6 +689,7 @@ require('lazy').setup({
   'neanias/everforest-nvim',
   'rebelot/kanagawa.nvim',
   'miikanissi/modus-themes.nvim',
+  'cocopon/iceberg.vim',
 }, {
   ui = {
     icons = vim.g.have_nerd_font and {} or {

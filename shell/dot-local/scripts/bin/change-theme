@@ -2,7 +2,7 @@
 
 THEME_DIR="$HOME/.config/themes"
 TARGET_FOOT="$HOME/.config/foot/theme.ini"
-TARGET_NVIM="$HOME/.config/nvim/lua/custom/plugins/theme.lua"
+TARGET_NVIM="$HOME/.config/nvim/lua/custom/theme.lua"
 TARGET_ALACRITTY="$HOME/.config/alacritty/theme.toml"
 TARGET_WAYBAR="$HOME/.config/waybar/theme.css"
 

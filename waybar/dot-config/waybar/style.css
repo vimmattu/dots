@@ -1,6 +1,6 @@
 @import url("theme.css");
 * {
-    font-size:14px;
+    font-size:16px;
     font-family: "IosevkaTerm Nerd Font";
 }
 window#waybar{

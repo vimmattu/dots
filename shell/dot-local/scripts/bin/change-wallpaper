@@ -1,0 +1,7 @@
+#!/usr/bin/bash
+bg_dir=$HOME/.local/share/backgrounds
+selection=$(ls $bg_dir | wmenu -p "Pick a wallpaper:")
+
+if [[ -n "$selection" ]]; then
+	swaybg -i $bg_dir/$selection -m fill
+fi

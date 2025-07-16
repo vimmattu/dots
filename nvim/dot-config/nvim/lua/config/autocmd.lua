@@ -14,6 +14,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
   callback = function()
     local highlights = {
       "Normal",
+      "NormalNC",
       "LineNr",
       "Folded",
       "NonText",
@@ -22,6 +23,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
       "SignColumn",
       "EndOfBuffer",
       "TablineFill", -- this is specific to how I like my tabline to look like
+      "StatusLineNc",
     }
     for _, name in pairs(highlights) do
       vim.cmd.highlight(name .. " guibg=none ctermbg=none")

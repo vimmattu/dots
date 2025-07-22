@@ -20,6 +20,7 @@ gnome-keyring
 dkms
 mako
 ttf-iosevkaterm-nerd
+ttf-terminus-nerd
 polkit
 librewolf
 feh

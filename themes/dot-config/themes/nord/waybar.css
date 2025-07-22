@@ -1,7 +1,5 @@
 @define-color background   	#2E3440;
 @define-color foreground   	#D8DEE9;
-@define-color text-default      #E5E9F0;
-@define-color text-highlight    #81A1C1;
 @define-color battery-good      #A3BE8C;
 @define-color battery-warn      #EBCB8B;
 @define-color battery-danger    #BF616A;

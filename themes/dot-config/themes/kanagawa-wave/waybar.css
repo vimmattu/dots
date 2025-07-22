@@ -1,9 +1,5 @@
 @define-color background        #1F1F28;  /* wave background */
 @define-color foreground        #DCD7BA;  /* wave foreground */
-
-@define-color text-default      #C8C093;  /* subtle, soft gray-beige */
-@define-color text-highlight    #7FB4CA;  /* light blue, link-like */
-
 @define-color battery-good      #98BB6C;  /* soft green */
 @define-color battery-warn      #E6C384;  /* warm gold */
-@define-color battery-danger    #E46876;  /* gentle crimson */
+@define-color battery-danger    #e82424;  /* gentle crimson */

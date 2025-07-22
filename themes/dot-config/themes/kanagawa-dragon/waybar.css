@@ -1,9 +1,5 @@
 @define-color background        #181616;  /* dragon background */
 @define-color foreground        #C5C9C5;  /* dragon foreground */
-
-@define-color text-default      #938AA9;  /* muted lavender-gray */
-@define-color text-highlight    #7FB4CA;  /* icy blue accent */
-
-@define-color battery-good      #76946A;  /* earthy green */
-@define-color battery-warn      #C0A36E;  /* dusty goldenrod */
-@define-color battery-danger    #C34043;  /* strong red */
+@define-color battery-good      #8a9a7b;  /* earthy green */
+@define-color battery-warn      #c4b28a;  /* dusty goldenrod */
+@define-color battery-danger    #c4746e;  /* strong red */

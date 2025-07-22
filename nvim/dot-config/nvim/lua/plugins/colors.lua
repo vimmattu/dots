@@ -8,4 +8,5 @@ return {
   "rebelot/kanagawa.nvim",
   "miikanissi/modus-themes.nvim",
   "cocopon/iceberg.vim",
+  "Shatur/neovim-ayu",
 }

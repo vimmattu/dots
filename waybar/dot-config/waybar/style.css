@@ -1,161 +1,157 @@
 @import url("theme.css");
+
 * {
-    font-size:16px;
-    font-family: "IosevkaTerm Nerd Font";
+  font-size: 16px;
+  font-family: "Terminess Nerd Font";
 }
-window#waybar{
-    all:unset;
-    background: alpha(@background, 0.95);
+
+window#waybar {
+  all: unset;
+  background-color: alpha(@background, 1);
 }
+
 .modules-left {
-    padding: 2px;
-    margin:0 0 0 0;
-    border-radius:10px;
+  padding: 2px;
+  margin: 0 0 0 0;
+  border-radius: 10px;
 }
+
 .modules-center {
-    padding:2px;
-    margin:0 0 0 0;
-    border-radius:10px;
+  padding: 2px;
+  margin: 0 0 0 0;
+  border-radius: 10px;
 }
+
 .modules-right {
-    padding:2px;
-    margin: 0 0 0 0;
-    border-radius:10px;
+  padding: 2px;
+  margin: 0 0 0 0;
+  border-radius: 10px;
 }
+
 tooltip {
-    background:@background;
-    color: @text-default;
+  background: @background;
+  color: @foreground;
 }
-#clock:hover, #custom-pacman:hover, #custom-notification:hover,#bluetooth:hover,#network:hover,#battery:hover, #cpu:hover,#memory:hover,#temperature:hover{
-    transition: all .3s ease;
-    color:@text-highlight;
+
+#clock:hover,
+#custom-pacman:hover,
+#custom-notification:hover,
+#bluetooth:hover,
+#network:hover,
+#battery:hover,
+#cpu:hover,
+#memory:hover,
+#temperature:hover {
+  color: @foreground;
 }
 #custom-notification {
-    padding: 0px 5px;
-    transition: all .3s ease;
-    color:@text-default;
+  padding: 0px 5px;
+  color: @foreground;
 }
-#clock{
-    padding: 0px 5px;
-    color:@text-default;
-    transition: all .3s ease;
+#clock {
+  padding: 0px 5px;
+  color: @foreground;
 }
-#custom-pacman{
-    padding: 0px 5px;
-    transition: all .3s ease;
-    color:@text-default;
-
+#custom-pacman {
+  padding: 0px 5px;
+  color: @foreground;
 }
 #workspaces {
-    padding: 0px 5px;
+  padding: 0px 5px;
 }
 #workspaces button {
-    all:unset;
-    padding: 0px 5px;
-    color: alpha(@text-default,.4);
-    transition: all .2s ease;
+  all: unset;
+  padding: 0px 5px;
+  color: alpha(@foreground, 0.6);
 }
 #workspaces button:hover {
-    color:rgba(0,0,0,0);
-    border: none;
-    text-shadow: 0px 0px 1.5px rgba(0, 0, 0, .5);
-    transition: all 1s ease;
+  color: @foreground;
+  border: none;
 }
 #workspaces button.focused {
-    color: @text-default;
-    border: none;
-    text-shadow: 0px 0px 2px rgba(0, 0, 0, .5);
+  color: @foreground;
+  border: none;
 }
 #workspaces button.empty {
-    color: rgba(0,0,0,0);
-    border: none;
-    text-shadow: 0px 0px 1.5px rgba(0, 0, 0, .2);
+  color: rgba(0, 0, 0, 0);
+  border: none;
 }
 #workspaces button.empty:hover {
-    color: rgba(0,0,0,0);
-    border: none;
-    text-shadow: 0px 0px 1.5px rgba(0, 0, 0, .5);
-    transition: all 1s ease;
+  color: rgba(0, 0, 0, 0);
+  border: none;
 }
 #workspaces button.empty.focused {
-    color: @text-default;
-    border: none;
-    text-shadow: 0px 0px 2px rgba(0, 0, 0, .5);
+  color: @foreground;
+  border: none;
 }
-#bluetooth{
-    padding: 0px 5px;
-    transition: all .3s ease;
-    color:@text-default;
-
+#bluetooth {
+  padding: 0px 5px;
+  color: @foreground;
 }
-#network{
-    padding: 0px 5px;
-    transition: all .3s ease;
-    color:@text-default;
-
+#network {
+  padding: 0px 5px;
+  color: @foreground;
 }
-#battery{
-    padding: 0px 5px;
-    transition: all .3s ease;
-    color:@text-default;
-
-
+#battery {
+  padding: 0px 5px;
+  color: @foreground;
 }
 #battery.charging {
-    color: @battery-good;
+  color: @battery-good;
 }
 
 #battery.warning:not(.charging) {
-    color: @battery-warn;
+  color: @battery-warn;
 }
 
 #battery.critical:not(.charging) {
-    color: @battery-danger;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-#group-expand{
-    padding: 0px 5px;
-    transition: all .3s ease; 
-}
-#custom-expand{
-    padding: 0px 5px;
-    color:alpha(@foreground,.2);
-    text-shadow: 0px 0px 2px rgba(0, 0, 0, .7);
-    transition: all .3s ease; 
-}
-#custom-expand:hover{
-    color:rgba(255,255,255,.2);
-    text-shadow: 0px 0px 2px rgba(255, 255, 255, .5);
-}
-#custom-colorpicker{
-    padding: 0px 5px;
-}
-#cpu,#memory,#temperature{
-    padding: 0px 5px;
-    transition: all .3s ease; 
-    color: @text-default;
-
-}
-#custom-endpoint{
-    color:transparent;
-    text-shadow: 0px 0px 1.5px rgba(0, 0, 0, 1);
+  color: @battery-danger;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
-#tray{
-    padding: 0px 5px;
-    transition: all .3s ease; 
+#group-expand {
+  padding: 0px 5px;
+}
+
+#custom-expand {
+  padding: 0px 5px;
+  color: alpha(@foreground, 0.4);
+  text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.7);
+}
+
+#custom-expand:hover {
+  color: rgba(255, 255, 255, 0.2);
+  text-shadow: 0px 0px 2px rgba(255, 255, 255, 0.5);
+}
+
+#custom-colorpicker {
+  padding: 0px 5px;
+}
+
+#cpu,
+#memory,
+#temperature {
+  padding: 0px 5px;
+  color: @foreground;
+}
+
+#custom-endpoint {
+  color: transparent;
+  text-shadow: 0px 0px 1.5px rgba(0, 0, 0, 1);
+}
+
+#tray {
+  padding: 0px 5px;
 }
 
 #tray menu * {
-    padding: 0px 5px;
-    transition: all .3s ease; 
+  padding: 0px 5px;
 }
 
 #tray menu separator {
-    padding: 0px 5px;
-    transition: all .3s ease; 
+  padding: 0px 5px;
 }

@@ -1,3 +1,15 @@
+alacritty
+bat
+awesome-terminal-fonts
+ansible
+ansible-core
+bash-completion
+blueman
+bluez
+bluez-hid2hci
+bluez-libs
+bluez-qt
+bluez-utils
 zellij
 neovim
 corectrl

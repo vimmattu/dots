@@ -47,3 +47,4 @@ libxslt
 fop
 wtype
 swaybg
+direnv

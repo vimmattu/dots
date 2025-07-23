@@ -23,6 +23,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
       "SignColumn",
       "EndOfBuffer",
       "TablineFill", -- this is specific to how I like my tabline to look like
+      "StatusLine",
       "StatusLineNC",
     }
     for _, name in pairs(highlights) do

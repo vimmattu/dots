@@ -48,3 +48,5 @@ fop
 wtype
 swaybg
 direnv
+inotify-tools
+grc

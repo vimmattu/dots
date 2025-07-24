@@ -6,6 +6,7 @@ TARGET_NVIM="$HOME/.config/nvim/lua/custom/theme.lua"
 TARGET_ALACRITTY="$HOME/.config/alacritty/theme.toml"
 TARGET_WAYBAR="$HOME/.config/waybar/theme.css"
 TARGET_SWAY="$HOME/.config/sway/theme.conf"
+TARGET_MAKO="$HOME/.config/mako/theme.conf"
 
 selected=$(ls "$THEME_DIR" | wmenu -p "Select theme:")
 
@@ -25,6 +26,7 @@ if [[ -n "$selected" ]]; then
     ln -sf "$THEME_DIR/$selected/alacritty.toml" "$TARGET_ALACRITTY"
     ln -sf "$THEME_DIR/$selected/waybar.css" "$TARGET_WAYBAR"
     ln -sf "$THEME_DIR/$selected/sway.conf" "$TARGET_SWAY"
+    ln -sf "$THEME_DIR/$selected/mako.conf" "$TARGET_MAKO"
     # NOTE: triggers alacritty hot reload
     touch ~/.config/alacritty/alacritty.toml
 
@@ -33,4 +35,5 @@ if [[ -n "$selected" ]]; then
     pkill -SIGUSR2 waybar
     swaymsg reload
     $HOME/.local/scripts/bin/lid-monitor --noloop
+    makoctl reload
 fi

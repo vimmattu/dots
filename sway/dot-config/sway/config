@@ -2,7 +2,7 @@ set $mod Mod4
 include /etc/sway/config.d/*
 include ~/.config/sway/theme.conf
 
-font pango:Terminess Nerd Font 12
+font pango:Terminess Nerd Font 10
 
 exec nm-applet
 exec mako
@@ -183,6 +183,7 @@ layer_effects "waybar" {
 
 default_border pixel
 smart_borders 1
+smart_gaps on
 
 bar {
         swaybar_command waybar

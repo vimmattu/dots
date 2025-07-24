@@ -1,0 +1,4 @@
+default-timeout=10000
+font=Terminess Nerd Font 12
+margin=5
+include=~/.config/mako/theme.conf

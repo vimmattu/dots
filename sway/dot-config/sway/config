@@ -1,10 +1,11 @@
 set $mod Mod4
 include /etc/sway/config.d/*
+include ~/.config/sway/theme.conf
 
 font pango:Terminess Nerd Font 12
 
-exec --no-startup-id nm-applet
-exec --no-startup-id mako
+exec nm-applet
+exec mako
 exec_always nm-applet --indicator
 
 # Use pactl to adjust volume in PulseAudio.

@@ -32,4 +32,5 @@ if [[ -n "$selected" ]]; then
     notify-send "Theme switched to $selected"
     pkill -SIGUSR2 waybar
     swaymsg reload
+    $HOME/.local/scripts/bin/lid-monitor --noloop
 fi

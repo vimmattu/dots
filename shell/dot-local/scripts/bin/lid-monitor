@@ -1,0 +1,46 @@
+#!/usr/bin/bash
+INTERNAL_MONITOR="eDP-1"
+LID_STATE_FILE="/proc/acpi/button/lid/LID0/state"
+
+if [[ ! -f "$LID_STATE_FILE" ]]; then
+  exit 0
+fi
+
+if ! swaymsg -t get_outputs -r | jq -r '.[].name' | grep $INTERNAL_MONITOR; then
+  exit 0
+fi
+
+[ "$1" == "--noloop" ] && should_loop=false || should_loop=true;
+should_notify="$should_loop"
+
+last_state="unknown"
+check_lid() {
+  state=$(awk '{print $2}' "$LID_STATE_FILE")
+  if [[ "$state" != "$last_state" ]]; then
+    if [[ "$state" == "closed" ]]; then
+      swaymsg output "$INTERNAL_MONITOR" disable
+      if $should_notify; then
+        notify-send "$INTERNAL_MONITOR disabled"
+      fi
+    else
+      swaymsg output "$INTERNAL_MONITOR" enable
+      if $should_notify; then
+        notify-send "$INTERNAL_MONITOR enabled"
+      fi
+    fi
+    last_state="$state"
+  fi
+}
+
+check_lid
+
+if ! $should_loop; then
+  exit 0
+fi
+
+if [ "$should_loop" ]; then
+  while true; do
+    check_lid
+    sleep 1
+  done
+fi

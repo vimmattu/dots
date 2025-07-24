@@ -1,0 +1,14 @@
+[Unit]
+Description=Monitor laptop lid state and toggle internal display
+After=graphical-session.target
+Wants=graphical-session.target
+
+[Service]
+ExecStart=%h/.local/scripts/bin/lid-monitor
+Restart=on-failure
+RestartSec=5
+Environment=DISPLAY=:0
+Environment=XDG_RUNTIME_DIR=/run/user/%U
+
+[Install]
+WantedBy=default.target

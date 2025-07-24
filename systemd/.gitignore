@@ -7,3 +7,10 @@ dot-config/systemd/*
 !dot-config/systemd/user/
 dot-config/systemd/user/*
 !dot-config/systemd/user/gcr-ssh-agent.service
+!dot-config/
+dot-config/*
+!dot-config/systemd/
+dot-config/systemd/*
+!dot-config/systemd/user/
+dot-config/systemd/user/*
+!dot-config/systemd/user/lid-monitor.service

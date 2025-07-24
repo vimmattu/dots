@@ -50,3 +50,4 @@ swaybg
 direnv
 inotify-tools
 grc
+htop

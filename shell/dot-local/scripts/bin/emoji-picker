@@ -17,7 +17,7 @@ EOF
 )
 
 # Show menu with emojis, let user select one
-selection=$(echo "$emoji_list" | wmenu -p "Pick an emoji:")
+selection=$(echo "$emoji_list" | rofi -dmenu -p "Pick an emoji:")
 
 # Extract just the emoji (everything before the first space)
 emoji=$(echo "$selection" | awk -v field="$field" '{print $field}')

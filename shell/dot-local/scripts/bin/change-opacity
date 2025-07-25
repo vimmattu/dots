@@ -13,7 +13,7 @@ options=$(cat <<EOF
 0.0
 EOF
 )
-selection=$(echo "$options" | wmenu -p "Pick an opacity:")
+selection=$(echo "$options" | rofi -dmenu -p "Pick an opacity:")
 
 if [[ -n "$selection" ]]; then
 	echo -e "[window]\nopacity = $selection" > ~/.config/alacritty/opacity.toml

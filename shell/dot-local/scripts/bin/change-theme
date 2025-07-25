@@ -7,8 +7,9 @@ TARGET_ALACRITTY="$HOME/.config/alacritty/theme.toml"
 TARGET_WAYBAR="$HOME/.config/waybar/theme.css"
 TARGET_SWAY="$HOME/.config/sway/theme.conf"
 TARGET_MAKO="$HOME/.config/mako/theme.conf"
+TARGET_ROFI="$HOME/.config/rofi/colors.rasi"
 
-selected=$(ls "$THEME_DIR" | wmenu -p "Select theme:")
+selected=$(ls "$THEME_DIR" | rofi -dmenu -p "Select theme:")
 
 notify_all_nvim_instances() {
     local runtime_dir="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"
@@ -27,6 +28,7 @@ if [[ -n "$selected" ]]; then
     ln -sf "$THEME_DIR/$selected/waybar.css" "$TARGET_WAYBAR"
     ln -sf "$THEME_DIR/$selected/sway.conf" "$TARGET_SWAY"
     ln -sf "$THEME_DIR/$selected/mako.conf" "$TARGET_MAKO"
+    ln -sf "$THEME_DIR/$selected/rofi.rasi" "$TARGET_ROFI"
     # NOTE: triggers alacritty hot reload
     touch ~/.config/alacritty/alacritty.toml
 

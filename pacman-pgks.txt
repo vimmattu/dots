@@ -51,3 +51,4 @@ direnv
 inotify-tools
 grc
 htop
+rofi-wayland

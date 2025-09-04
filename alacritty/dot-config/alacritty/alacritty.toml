@@ -9,11 +9,11 @@ padding={x = 16}
 
 [font]
 size = 16
-# normal = { family = "IosevkaTerm Nerd Font Mono", style = "Regular" }
-# italic = { family = "IosevkaTerm Nerd Font Mono", style = "Regular" }
-# bold = { family = "IosevkaTerm Nerd Font Mono", style = "Bold" }
-# bold_italic = { family = "IosevkaTerm Nerd Font Mono", style = "Bold" }
-normal = { family = "Terminess Nerd Font Mono", style = "Regular" }
-italic = { family = "Terminess Nerd Font Mono", style = "Regular" }
-bold = { family = "Terminess Nerd Font Mono", style = "Bold" }
-bold_italic = { family = "Terminess Nerd Font Mono", style = "Bold" }
+normal = { family = "IosevkaTerm Nerd Font Mono", style = "Regular" }
+italic = { family = "IosevkaTerm Nerd Font Mono", style = "Italic" }
+bold = { family = "IosevkaTerm Nerd Font Mono", style = "Bold" }
+bold_italic = { family = "IosevkaTerm Nerd Font Mono", style = "Bold Bold" }
+# normal = { family = "Terminess Nerd Font Mono", style = "Regular" }
+# italic = { family = "Terminess Nerd Font Mono", style = "Regular" }
+# bold = { family = "Terminess Nerd Font Mono", style = "Bold" }
+# bold_italic = { family = "Terminess Nerd Font Mono", style = "Bold" }

@@ -1,7 +1,7 @@
 * {
     background-color: transparent;
     transparent: rgba(0,0,0,0);
-    font: "Terminess Nerd Font 14";
+    font: "IosevkaTerm Nerd Font 14";
     alternate-normal-background: @background;
     alternate-normal-foreground: @foreground;
     alternate-active-background: @green;
@@ -46,7 +46,7 @@ message {
     background-color: @blue;
 }
 message {
-    font: "Terminess Nerd Font 10";
+    font: "IosevkaTerm Nerd Font 10";
     color: @black;
 }
 inputbar {

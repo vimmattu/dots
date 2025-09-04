@@ -9,4 +9,5 @@ return {
   "miikanissi/modus-themes.nvim",
   "cocopon/iceberg.vim",
   "Shatur/neovim-ayu",
+  "oonamo/ef-themes.nvim",
 }

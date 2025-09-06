@@ -1,0 +1,12 @@
+* {
+    background:   #232025;
+    foreground:   #efd5c5;
+    black:        #322f34;
+    red:          #ff6f6f;
+    green:        #51b04f;
+    yellow:       #c0b24f;
+    blue:         #57b0ff;
+    white:        #efd5c5;
+    // Bold, Italic, Underline
+    highlight:    underline bold;
+}

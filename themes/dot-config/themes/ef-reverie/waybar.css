@@ -1,0 +1,10 @@
+@define-color background #4f204f;
+/* primary background */
+@define-color foreground #f3eddf;
+/* primary foreground (text) */
+@define-color battery-good #007a0a;
+/* normal green */
+@define-color battery-warn #87591f;
+/* normal yellow */
+@define-color battery-danger #ba2d2f;
+/* normal red */

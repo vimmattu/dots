@@ -1,0 +1,85 @@
+declare-option -hidden str run_in_pane_result
+
+define-command run-in-pane \
+    -params 1 \
+    -docstring "
+        Run a shell command inside a temporary tmux pane and store its output in a Kakoune option.
+
+        The command is executed in a new tmux pane. Its standard output is captured
+        and stored in the buffer-local option `run_in_pane_result`, which can then
+        be used by other commands.
+
+        Useful for integrating interactive tools (e.g. fzf, ranger) into Kakoune.
+    " %{
+    evaluate-commands %sh{
+        run_cmd="$1"
+        out_cmd="${2}"
+        output_temp_file=$(mktemp)
+        kak_pane=$(tmux display -p '#{pane_id}')
+        dummy_pane=$(tmux split-window -v -P -F '#{pane_id}' "$run_cmd > \"$output_temp_file\"")
+        tmux resize-pane -Z -t "$dummy_pane"
+        while [ ! -s "$output_temp_file" ]; do sleep 0.2; done
+        output=$(cat "$output_temp_file")
+        rm "$output_temp_file"
+        tmux kill-pane -t "$dummy_pane"
+        if [ -n "$output" ]; then
+            printf "set-option buffer run_in_pane_result '%s'\n" "$output"
+        fi
+    }
+}
+
+define-command fzf-file -docstring "Search files using fzf and open match" %{
+    run-in-pane "fzf --preview 'cat {}'"
+    edit %opt{run_in_pane_result}
+    unset-option buffer run_in_pane_result
+}
+
+define-command nnn-picker -params 0..1 -docstring "Open nnn file explorer at the root" %{
+    run-in-pane "nnn $1 -p -"
+    edit %opt{run_in_pane_result}
+    unset-option buffer run_in_pane_result
+}
+
+define-command nnn-current-directory -docstring "Open nnn file explorer at the current directory" %{
+    evaluate-commands %sh{
+        dir=$(dirname "$kak_buffile")
+        printf "echo '%s'\n" "$dir"
+        printf "nnn-picker '%s'\n" "$dir"
+    }
+}
+
+define-command tmux-split-window -docstring "Tmux split window right/down" -params 1 %{
+    evaluate-commands %sh{
+        tmux split-window "$1" kak -c "$kak_session" 
+    }
+}
+
+define-command fzf-search -docstring "Search files using rg+fzf and open match" %{
+    run-in-pane %sh{
+        cat <<'EOF'
+rg . -n --color=always | \
+fzf --ansi --delimiter=: \
+--bind 'page-up:preview-page-up,page-down:preview-page-down' \
+--preview 'tail +{2} {1}'
+EOF
+    }
+    evaluate-commands %sh{
+        result="$kak_opt_run_in_pane_result"
+        [ -z "$result" ] && exit 0
+        IFS=: read -r file line _ <<< "$result"
+        file=$(printf %s "$file" | sed "s/'/'\\\\''/g")
+        line=$(printf %s "$line" | sed "s/'/'\\\\''/g")
+        printf "edit '%s' '%s'\n" "$file" "$line"
+    }
+}
+
+map global user f -docstring "Search files using fzf and open match" :fzf-file<ret>
+map global user / -docstring "Fuzzy-search text using rg+fzf and open match" :fzf-search<ret>
+map global user n -docstring "Open nnn and select files" :nnn-picker<ret>
+map global user . -docstring "Open nnn and select files" :nnn-current-directory<ret>
+map global user s -docstring "Split window vertically" ":tmux-split-window -v<ret>"
+map global user v -docstring "Split window horizontally" ":tmux-split-window -h<ret>"
+# map global user x -docstring "Kill window" ":eval %sh{tmux kill-pane}<ret>"
+
+add-highlighter global/ number-lines -relative -hlcursor
+set-option global ui_options terminal_assistant=cat

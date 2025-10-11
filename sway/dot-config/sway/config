@@ -196,6 +196,10 @@ input "type:touchpad" {
         middle_emulation enabled
 }
 
+input "type:keyboard" {
+    xkb_options ctrl:nocaps
+}
+
 exec swaymsg workspace 1:dev
 
 # Colors

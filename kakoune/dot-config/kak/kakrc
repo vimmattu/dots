@@ -14,14 +14,11 @@ define-command run-in-pane \
     evaluate-commands %sh{
         run_cmd="$1"
         out_cmd="${2}"
-        output_temp_file=$(mktemp)
-        kak_pane=$(tmux display -p '#{pane_id}')
-        dummy_pane=$(tmux split-window -v -P -F '#{pane_id}' "$run_cmd > \"$output_temp_file\"")
-        tmux resize-pane -Z -t "$dummy_pane"
-        while [ ! -s "$output_temp_file" ]; do sleep 0.2; done
-        output=$(cat "$output_temp_file")
-        rm "$output_temp_file"
-        tmux kill-pane -t "$dummy_pane"
+        channel=$(mktemp)
+        tmux wait-for -S $channel 2>/dev/null
+        tmux popup -h 80% -w 80% -d "$PWD" -E "$run_cmd > \"$channel\"; tmux wait-for -S $channel"
+        output=$(cat "$channel")
+        rm "$channel"
         if [ -n "$output" ]; then
             printf "set-option buffer run_in_pane_result '%s'\n" "$output"
         fi
@@ -29,21 +26,27 @@ define-command run-in-pane \
 }
 
 define-command fzf-file -docstring "Search files using fzf and open match" %{
-    run-in-pane "fzf --preview 'cat {}'"
-    edit %opt{run_in_pane_result}
-    unset-option buffer run_in_pane_result
+    try %{
+        run-in-pane "fzf --preview 'cat {}'"
+        edit -existing %opt{run_in_pane_result}
+        unset-option buffer run_in_pane_result
+    }
 }
 
 define-command nnn-picker -params 0..1 -docstring "Open nnn file explorer at the root" %{
-    run-in-pane "nnn $1 -p -"
-    edit %opt{run_in_pane_result}
-    unset-option buffer run_in_pane_result
+    run-in-pane %sh{
+        dir="${1:-.}"
+        printf "nnn %q -d -p -\n" "$dir"
+    }
+    try %{
+        edit -existing %opt{run_in_pane_result}
+        unset-option buffer run_in_pane_result
+    }
 }
 
 define-command nnn-current-directory -docstring "Open nnn file explorer at the current directory" %{
     evaluate-commands %sh{
         dir=$(dirname "$kak_buffile")
-        printf "echo '%s'\n" "$dir"
         printf "nnn-picker '%s'\n" "$dir"
     }
 }
@@ -69,17 +72,19 @@ EOF
         IFS=: read -r file line _ <<< "$result"
         file=$(printf %s "$file" | sed "s/'/'\\\\''/g")
         line=$(printf %s "$line" | sed "s/'/'\\\\''/g")
-        printf "edit '%s' '%s'\n" "$file" "$line"
+        printf "edit -existing '%s' '%s'\n" "$file" "$line"
     }
 }
 
-map global user f -docstring "Search files using fzf and open match" :fzf-file<ret>
-map global user / -docstring "Fuzzy-search text using rg+fzf and open match" :fzf-search<ret>
-map global user n -docstring "Open nnn and select files" :nnn-picker<ret>
-map global user . -docstring "Open nnn and select files" :nnn-current-directory<ret>
-map global user s -docstring "Split window vertically" ":tmux-split-window -v<ret>"
-map global user v -docstring "Split window horizontally" ":tmux-split-window -h<ret>"
-# map global user x -docstring "Kill window" ":eval %sh{tmux kill-pane}<ret>"
+declare-user-mode tmux
+map global user f -docstring "Search files using fzf and open match" ":fzf-file<ret>"
+map global user / -docstring "Fuzzy-search text using rg+fzf and open match" ":fzf-search<ret>"
+map global user n -docstring "Open nnn and select files" ":nnn-picker<ret>"
+map global user . -docstring "Open nnn and select files in current directory" ":nnn-current-directory<ret>"
+map global user t -docstring "Enter tmux mode" ":enter-user-mode tmux<ret>"
+map global user g -docstring "Open lazygit" ":run-in-pane lazygit<ret>"
+map global tmux s -docstring "Split window vertically" ":tmux-split-window -v<ret>"
+map global tmux v -docstring "Split window horizontally" ":tmux-split-window -h<ret>"
 
 add-highlighter global/ number-lines -relative -hlcursor
 set-option global ui_options terminal_assistant=cat

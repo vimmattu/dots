@@ -16,7 +16,7 @@ define-command run-in-pane \
         out_cmd="${2}"
         channel=$(mktemp)
         tmux wait-for -S $channel 2>/dev/null
-        tmux popup -h 80% -w 80% -d "$PWD" -E "$run_cmd > \"$channel\"; tmux wait-for -S $channel"
+        tmux popup -h 90% -w 90% -d "$PWD" -E "$run_cmd > \"$channel\"; tmux wait-for -S $channel"
         output=$(cat "$channel")
         rm "$channel"
         if [ -n "$output" ]; then
@@ -101,6 +101,7 @@ try %{
     map global object t '<a-semicolon>lsp-object Class Interface Struct<ret>' -docstring 'LSP class interface or struct'
     map global object d '<a-semicolon>lsp-diagnostic-object --include-warnings<ret>' -docstring 'LSP errors and warnings'
     map global object D '<a-semicolon>lsp-diagnostic-object<ret>' -docstring 'LSP errors'
+    map global user k ':lsp-hover<ret>' -docstring "LSP: show info for current position"
 
     hook -group lsp-filetype-python global BufSetOption filetype=python %{
         set-option buffer lsp_servers %{
@@ -111,6 +112,7 @@ try %{
     }
     lsp-inlay-hints-enable global
     lsp-inlay-diagnostics-enable global
+    set-option global lsp_hover_anchor true
     lsp-enable
 }
 
@@ -122,3 +124,13 @@ source "%val{config}/jump_mode.kak"
 map -docstring 'jump (select mode: replace)' global jump j ':enter_jump_mode_with_replace_select_mode<ret>'
 map -docstring 'jump (select mode: extend)' global jump e ':enter_jump_mode_with_extend_select_mode<ret>'
 map -docstring 'jump (select mode: append)' global jump a ':enter_jump_mode_with_append_select_mode<ret>'
+
+hook global WinCreate .* %{
+    evaluate-commands %sh{
+        if [ $kak_buffile != $kak_bufname ] && git ls-files --error-unmatch "$kak_buffile" > /dev/null 2>&1; then
+            echo "git show-diff"
+        fi
+    }
+}
+hook global BufWritePost .* "git update-diff"
+hook global BufReload .* "git update-diff"

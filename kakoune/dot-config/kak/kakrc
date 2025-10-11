@@ -134,3 +134,11 @@ hook global WinCreate .* %{
 }
 hook global BufWritePost .* "git update-diff"
 hook global BufReload .* "git update-diff"
+
+set-option global tabstop 4
+set-option global indentwidth 4
+
+hook global WinSetOption filetype=(javascript|javascriptreact|typescript|typescriptreact) %{
+    set-option window tabstop 2
+    set-option window indentwidth 2
+}

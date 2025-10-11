@@ -77,14 +77,48 @@ EOF
 }
 
 declare-user-mode tmux
+declare-user-mode jump
 map global user f -docstring "Search files using fzf and open match" ":fzf-file<ret>"
 map global user / -docstring "Fuzzy-search text using rg+fzf and open match" ":fzf-search<ret>"
 map global user n -docstring "Open nnn and select files" ":nnn-picker<ret>"
 map global user . -docstring "Open nnn and select files in current directory" ":nnn-current-directory<ret>"
 map global user t -docstring "Enter tmux mode" ":enter-user-mode tmux<ret>"
+map global user j -docstring "Enter jump mode" ":enter-user-mode jump<ret>"
 map global user g -docstring "Open lazygit" ":run-in-pane lazygit<ret>"
 map global tmux s -docstring "Split window vertically" ":tmux-split-window -v<ret>"
 map global tmux v -docstring "Split window horizontally" ":tmux-split-window -h<ret>"
 
 add-highlighter global/ number-lines -relative -hlcursor
 set-option global ui_options terminal_assistant=cat
+
+try %{
+    evaluate-commands %sh{kak-lsp}
+    map global user l ':enter-user-mode lsp<ret>' -docstring 'LSP mode'
+    map global insert <tab> '<a-;>:try lsp-snippets-select-next-placeholders catch %{ execute-keys -with-hooks <lt>tab> }<ret>' -docstring 'Select next snippet placeholder'
+    map global object a '<a-semicolon>lsp-object<ret>' -docstring 'LSP any symbol'
+    map global object <a-a> '<a-semicolon>lsp-object<ret>' -docstring 'LSP any symbol'
+    map global object f '<a-semicolon>lsp-object Function Method<ret>' -docstring 'LSP function or method'
+    map global object t '<a-semicolon>lsp-object Class Interface Struct<ret>' -docstring 'LSP class interface or struct'
+    map global object d '<a-semicolon>lsp-diagnostic-object --include-warnings<ret>' -docstring 'LSP errors and warnings'
+    map global object D '<a-semicolon>lsp-diagnostic-object<ret>' -docstring 'LSP errors'
+
+    hook -group lsp-filetype-python global BufSetOption filetype=python %{
+        set-option buffer lsp_servers %{
+            [basedpyright-langserver]
+            root_globs = ["requirements.txt", "setup.py", "pyproject.toml", "pyrightconfig.json", ".git", ".hg"]
+            args = ["--stdio"]
+        }
+    }
+    lsp-inlay-hints-enable global
+    lsp-inlay-diagnostics-enable global
+    lsp-enable
+}
+
+try %{
+    evaluate-commands %sh{ kak-tree-sitter -dks --init $kak_session }
+}
+
+source "%val{config}/jump_mode.kak"
+map -docstring 'jump (select mode: replace)' global jump j ':enter_jump_mode_with_replace_select_mode<ret>'
+map -docstring 'jump (select mode: extend)' global jump e ':enter_jump_mode_with_extend_select_mode<ret>'
+map -docstring 'jump (select mode: append)' global jump a ':enter_jump_mode_with_append_select_mode<ret>'

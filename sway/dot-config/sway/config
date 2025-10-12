@@ -2,6 +2,13 @@ set $mod Mod4
 include /etc/sway/config.d/*
 include ~/.config/sway/theme.conf
 
+set  {
+  $background         $base00
+  $foreground         $base01
+  $border             $base0B
+  $indicator          $base0A
+}
+
 font pango:IosevkaTerm Nerd Font 10
 
 exec nm-applet

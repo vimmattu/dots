@@ -1,0 +1,61 @@
+shell = "bash -c '{}'"
+
+[[items]]
+name = "tinted-shell"
+path = "https://github.com/tinted-theming/tinted-shell"
+hook = ". %f"
+supported-systems = ["base16"]
+themes-dir = "scripts"
+
+[[items]]
+name = "tinted-terminal"
+path = "https://github.com/tinted-theming/tinted-terminal"
+supported-systems = ["base16"]
+hook = "cp -f %f ~/.config/alacritty/theme.toml && touch ~/.config/alacritty/alacritty.toml"
+themes-dir = "themes/alacritty"
+
+[[items]]
+name = "base16-kakoune"
+path = "https://github.com/tinted-theming/base16-kakoune"
+supported-systems = ["base16"]
+# sed -E \"s/^(set-face global (Default|MatchingChar|Whitespace|LineNumbers|BufferPadding)) .*/\\1 default,default/\" \
+hook = """\
+	   cat %f |\
+       sed -E \"s/^(set-face global Default) .*/\\1 \\"%\\opt{base05},default\\"/\" |\
+       sed -E \"s/^(set-face global (Whitespace|LineNumbers)) .*/\\1 \\"%\\opt{base01},default\\"/\" |\
+       sed -E \"s/^(set-face global BufferPadding) .*/\\1 \\"%\\opt{base04},default\\"/\" |\
+       sed -E \"s/^(set-face global MenuForground) .*/\\1 \\"%\\opt{base04},%\\opt{base01}+b\\"/\" |\
+       sed -E \"s/^(set-face global (MenuBackground|Information)) .*/\\1 \\"%\\opt{base01},%\\opt{base04}\\"/\" \
+       > ~/.config/kak/colors/tinty.kak;
+       for s in $(kak -l); do echo \"colorscheme tinty\" | kak -p $s; done
+       """
+themes-dir = "colors"
+
+[[items]]
+name = "base16-waybar"
+path = "https://github.com/tinted-theming/base16-waybar"
+supported-systems = ["base16"]
+hook = "cp -f %f ~/.config/waybar/theme.css && pkill -SIGUSR2 waybar"
+themes-dir = "colors"
+
+[[items]]
+name = "base16-i3"
+path = "https://github.com/tinted-theming/base16-i3"
+supported-systems = ["base16"]
+hook = "cp -f %f ~/.config/sway/theme.conf && swaymsg reload && ~/.local/scripts/bin/lid-monitor --noloop"
+themes-dir = "colors"
+
+[[items]]
+name = "base16-rofi"
+path = "https://github.com/tinted-theming/base16-rofi"
+supported-systems = ["base16"]
+hook = "cp -f %f ~/.config/rofi/theme.rasi"
+themes-dir = "colors"
+
+[[items]]
+name = "base16-mako"
+path = "https://github.com/stacyharper/base16-mako"
+revision = "master"
+supported-systems = ["base16"]
+hook = "cp -f %f ~/.config/mako/theme.conf && makoctl reload"
+themes-dir = "colors"

@@ -7,7 +7,8 @@
 
 window#waybar {
   all: unset;
-  background-color: alpha(@background, 1);
+  color: @base07;
+  background-color: alpha(@base00, 1);
 }
 
 .modules-left {
@@ -29,8 +30,8 @@ window#waybar {
 }
 
 tooltip {
-  background: @background;
-  color: @foreground;
+  background: @base00;
+  color: @base07;
 }
 
 #clock:hover,
@@ -42,19 +43,19 @@ tooltip {
 #cpu:hover,
 #memory:hover,
 #temperature:hover {
-  color: @foreground;
+  color: @base07;
 }
 #custom-notification {
   padding: 0px 5px;
-  color: @foreground;
+  color: @base07;
 }
 #clock {
   padding: 0px 5px;
-  color: @foreground;
+  color: @base07;
 }
 #custom-pacman {
   padding: 0px 5px;
-  color: @foreground;
+  color: @base07;
 }
 #workspaces {
   padding: 0px 5px;
@@ -62,14 +63,14 @@ tooltip {
 #workspaces button {
   all: unset;
   padding: 0px 5px;
-  color: alpha(@foreground, 0.6);
+  color: alpha(@base07, 0.6);
 }
 #workspaces button:hover {
-  color: @foreground;
+  color: @base07;
   border: none;
 }
 #workspaces button.focused {
-  color: @foreground;
+  color: @base07;
   border: none;
 }
 #workspaces button.empty {
@@ -81,31 +82,31 @@ tooltip {
   border: none;
 }
 #workspaces button.empty.focused {
-  color: @foreground;
+  color: @base07;
   border: none;
 }
 #bluetooth {
   padding: 0px 5px;
-  color: @foreground;
+  color: @base07;
 }
 #network {
   padding: 0px 5px;
-  color: @foreground;
+  color: @base07;
 }
 #battery {
   padding: 0px 5px;
-  color: @foreground;
+  color: @base07;
 }
 #battery.charging {
-  color: @battery-good;
+  color: @base0B;
 }
 
 #battery.warning:not(.charging) {
-  color: @battery-warn;
+  color: @base09;
 }
 
 #battery.critical:not(.charging) {
-  color: @battery-danger;
+  color: @base08;
   animation-name: blink;
   animation-duration: 0.5s;
   animation-timing-function: linear;
@@ -119,7 +120,7 @@ tooltip {
 
 #custom-expand {
   padding: 0px 5px;
-  color: alpha(@foreground, 0.4);
+  color: alpha(@base07, 0.4);
   text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.7);
 }
 
@@ -136,7 +137,7 @@ tooltip {
 #memory,
 #temperature {
   padding: 0px 5px;
-  color: @foreground;
+  color: @base07;
 }
 
 #custom-endpoint {

@@ -77,13 +77,11 @@ EOF
 }
 
 declare-user-mode tmux
-declare-user-mode jump
 map global user f -docstring "Search files using fzf and open match" ":fzf-file<ret>"
 map global user / -docstring "Fuzzy-search text using rg+fzf and open match" ":fzf-search<ret>"
 map global user n -docstring "Open nnn and select files" ":nnn-picker<ret>"
 map global user . -docstring "Open nnn and select files in current directory" ":nnn-current-directory<ret>"
 map global user t -docstring "Enter tmux mode" ":enter-user-mode tmux<ret>"
-map global user j -docstring "Enter jump mode" ":enter-user-mode jump<ret>"
 map global user g -docstring "Open lazygit" ":run-in-pane lazygit<ret>"
 map global tmux s -docstring "Split window vertically" ":tmux-split-window -v<ret>"
 map global tmux v -docstring "Split window horizontally" ":tmux-split-window -h<ret>"
@@ -121,9 +119,6 @@ try %{
 }
 
 source "%val{config}/jump_mode.kak"
-map -docstring 'jump (select mode: replace)' global jump j ':enter_jump_mode_with_replace_select_mode<ret>'
-map -docstring 'jump (select mode: extend)' global jump e ':enter_jump_mode_with_extend_select_mode<ret>'
-map -docstring 'jump (select mode: append)' global jump a ':enter_jump_mode_with_append_select_mode<ret>'
 
 hook global WinCreate .* %{
     evaluate-commands %sh{
@@ -142,3 +137,10 @@ hook global WinSetOption filetype=(javascript|javascriptreact|typescript|typescr
     set-option window tabstop 2
     set-option window indentwidth 2
 }
+
+map -docstring 'jump (select mode: replace)' global goto w '<esc>:enter_jump_mode_with_replace_select_mode<ret>'
+map -docstring 'jump (select mode: extend)' global goto W '<esc>:enter_jump_mode_with_extend_select_mode<ret>'
+map -docstring 'jump (select mode: append)' global goto <a-w> '<esc>:enter_jump_mode_with_append_select_mode<ret>'
+
+map global normal '#' ":comment-line<ret>"
+map global normal <a-#> ":comment-block<ret>"

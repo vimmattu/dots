@@ -1,5 +1,0 @@
-@define-color background        #1C1C1C;  /* dark bg */
-@define-color foreground        #EEEEEE;  /* light fg */
-@define-color battery-good      #5F875F;  /* muted green */
-@define-color battery-warn      #AF8700;  /* dark yellow/gold */
-@define-color battery-danger    #AF5F5F;  /* warm red */

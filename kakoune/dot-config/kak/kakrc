@@ -144,3 +144,5 @@ map -docstring 'jump (select mode: append)' global goto <a-w> '<esc>:enter_jump_
 
 map global normal '#' ":comment-line<ret>"
 map global normal <a-#> ":comment-block<ret>"
+
+colorscheme tinty

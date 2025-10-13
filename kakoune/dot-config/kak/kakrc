@@ -76,7 +76,18 @@ EOF
     }
 }
 
+# Source: https://phaazon.net/blog/kakoune-philosophy
+define-command -override my-surround-add -params 2 %{
+  evaluate-commands -draft -save-regs '"' %{
+    set-register '"' %arg{1}
+    execute-keys -draft P
+    set-register '"' %arg{2}
+    execute-keys -draft p
+  }
+}
+
 declare-user-mode tmux
+declare-user-mode match
 map global user f -docstring "Search files using fzf and open match" ":fzf-file<ret>"
 map global user / -docstring "Fuzzy-search text using rg+fzf and open match" ":fzf-search<ret>"
 map global user n -docstring "Open nnn and select files" ":nnn-picker<ret>"
@@ -85,6 +96,24 @@ map global user t -docstring "Enter tmux mode" ":enter-user-mode tmux<ret>"
 map global user g -docstring "Open lazygit" ":run-in-pane lazygit<ret>"
 map global tmux s -docstring "Split window vertically" ":tmux-split-window -v<ret>"
 map global tmux v -docstring "Split window horizontally" ":tmux-split-window -h<ret>"
+map global match  m m -docstring "select to the next sequence enclosed by matching characters, see the matching_pairs option in :doc options"
+map global match  M M -docstring "extend the current selection to the next sequence enclosed by matching character, see the matching_pairs option in :doc options"
+map global match  <a-m> <a-m> -docstring "select to the previous sequence enclosed by matching characters, see the matching_pairs option in :doc options"
+map global match  <a-M> <a-M> -docstring "extend the current selection to the previous sequence enclosed by matching characters, see the matching_pairs option in :doc options"
+map global normal m '<esc>:enter-user-mode match<ret>'
+
+map global match (   ':my-surround-add ( )<ret>'         -docstring 'surround with parenthesis'
+map global match )   ':my-surround-add ( )<ret>'         -docstring 'surround with parenthesis'
+map global match [   ':my-surround-add [ ]<ret>'         -docstring 'surround with brackets'
+map global match ]   ':my-surround-add [ ]<ret>'         -docstring 'surround with brackets'
+map global match {   ':my-surround-add { }<ret>'         -docstring 'surround with curly brackets'
+map global match }   ':my-surround-add { }<ret>'         -docstring 'surround with curly brackets'
+map global match <   ':my-surround-add < ><ret>'         -docstring 'surround with angle brackets'
+map global match >   ':my-surround-add < ><ret>'         -docstring 'surround with angle brackets'
+map global match "'" ":my-surround-add ""'"" ""'""<ret>" -docstring 'surround with quotes'
+map global match '"' ":my-surround-add '""' '""'<ret>"   -docstring 'surround with double quotes'
+map global match *   ':my-surround-add * *<ret>'         -docstring 'surround with asteriks'
+map global match _   ':my-surround-add _ _<ret>'         -docstring 'surround with undescores'
 
 add-highlighter global/ number-lines -relative -hlcursor
 set-option global ui_options terminal_assistant=cat

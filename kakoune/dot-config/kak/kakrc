@@ -137,7 +137,7 @@ try %{
             args = ["--stdio"]
         }
     }
-    lsp-inlay-hints-enable global
+    # lsp-inlay-hints-enable global
     lsp-inlay-diagnostics-enable global
     set-option global lsp_hover_anchor true
     lsp-enable

@@ -116,6 +116,7 @@ map global match *   ':my-surround-add * *<ret>'         -docstring 'surround wi
 map global match _   ':my-surround-add _ _<ret>'         -docstring 'surround with undescores'
 
 add-highlighter global/ number-lines -relative -hlcursor
+add-highlighter global/ show-whitespaces -spc ' ' -tab ' '
 set-option global ui_options terminal_assistant=cat
 
 try %{
@@ -159,8 +160,10 @@ hook global WinCreate .* %{
 hook global BufWritePost .* "git update-diff"
 hook global BufReload .* "git update-diff"
 
-set-option global tabstop 4
-set-option global indentwidth 4
+hook global BufOpenFile .* %{ editorconfig-load }
+hook global BufNewFile .* %{ editorconfig-load }
+# set-option global tabstop 4
+# set-option global indentwidth 4
 
 hook global WinSetOption filetype=(javascript|javascriptreact|typescript|typescriptreact) %{
     set-option window tabstop 2

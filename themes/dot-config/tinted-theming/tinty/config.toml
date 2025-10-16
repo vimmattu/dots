@@ -20,7 +20,7 @@ path = "https://github.com/tinted-theming/base16-kakoune"
 supported-systems = ["base16"]
 # sed -E \"s/^(set-face global (Default|MatchingChar|Whitespace|LineNumbers|BufferPadding)) .*/\\1 default,default/\" \
 hook = """\
-	   cat %f |\
+       cat %f |\
        sed -E \"s/^(set-face global Default) .*/\\1 \\"%\\opt{base05},default\\"/\" |\
        sed -E \"s/^(set-face global (Whitespace|LineNumbers)) .*/\\1 \\"%\\opt{base01},default\\"/\" |\
        sed -E \"s/^(set-face global BufferPadding) .*/\\1 \\"%\\opt{base04},default\\"/\" |\

@@ -138,6 +138,41 @@ try %{
             args = ["--stdio"]
         }
     }
+
+    hook -group lsp-filetype-javascript global BufSetOption filetype=(?:javascript|typescript) %{
+        set-option buffer lsp_servers %{
+            [deno]
+            root_globs = ["deno.lock", "tsconfig.json", ".git", ".hg"]
+            args = ["lsp"]
+            settings_section = "deno"
+            [deno.settings.deno]
+            enable = true
+            lint = true
+        }
+        # set-option buffer lsp_servers %{
+        #     [typescript-language-server]
+        #     root_globs = ["package.json", "tsconfig.json", "jsconfig.json", ".git", ".hg"]
+        #     args = ["--stdio"]
+        #     settings_section = "_"
+        #     [typescript-language-server.settings._]
+        #     # quotePreference = "double"
+        #     # typescript.format.semicolons = "insert"
+        # }
+    }
+
+    hook -group lsp-filetype-gdscript global BufSetOption filetype=(?:gdscript) %{
+        set-option buffer lsp_servers %{
+            [deno]
+            root_globs = ["deno.lock", "tsconfig.json", ".git", ".hg"]
+            args = ["lsp"]
+            settings_section = "deno"
+            [deno.settings.deno]
+            enable = true
+            lint = true
+        }
+    }
+
+
     # lsp-inlay-hints-enable global
     lsp-inlay-diagnostics-enable global
     set-option global lsp_hover_anchor true
@@ -165,7 +200,9 @@ hook global BufNewFile .* %{ editorconfig-load }
 # set-option global tabstop 4
 # set-option global indentwidth 4
 
-hook global WinSetOption filetype=(javascript|javascriptreact|typescript|typescriptreact) %{
+hook global BufCreate .*[.]tsx %{ set-option buffer filetype javascript }
+hook global BufCreate .*\.d\.ts %{ set-option buffer filetype javascript }
+hook global WinSetOption filetype=(javascript|jsx|typescript|tsx) %{
     set-option window tabstop 2
     set-option window indentwidth 2
 }

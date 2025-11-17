@@ -5,15 +5,15 @@ import = [
 ]
 
 [window]
-padding={x = 14}
+padding={x = 15}
 
 [font]
-size = 14
+size = 15
 normal = { family = "IosevkaTerm Nerd Font Mono", style = "Regular" }
 italic = { family = "IosevkaTerm Nerd Font Mono", style = "Italic" }
 bold = { family = "IosevkaTerm Nerd Font Mono", style = "Bold" }
-bold_italic = { family = "IosevkaTerm Nerd Font Mono", style = "Bold Bold" }
+bold_italic = { family = "IosevkaTerm Nerd Font Mono", style = "Italic Bold" }
 # normal = { family = "Terminess Nerd Font Mono", style = "Regular" }
-# italic = { family = "Terminess Nerd Font Mono", style = "Regular" }
+# italic = { family = "Terminess Nerd Font Mono", style = "Italic" }
 # bold = { family = "Terminess Nerd Font Mono", style = "Bold" }
-# bold_italic = { family = "Terminess Nerd Font Mono", style = "Bold" }
+# bold_italic = { family = "Terminess Nerd Font Mono", style = "Italic Bold" }

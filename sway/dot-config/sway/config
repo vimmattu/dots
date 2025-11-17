@@ -9,7 +9,7 @@ set  {
   $indicator          $base0A
 }
 
-font pango:IosevkaTerm Nerd Font 10
+font pango:IosevkaTerm Nerd Font 12
 
 exec nm-applet
 exec mako
@@ -93,16 +93,16 @@ bindsym $mod+Shift+minus move scratchpad
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:dev"
-set $ws2 "2:firefox"
+set $ws1 "1"
+set $ws2 "2"
 set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
-set $ws8 "8:chromium"
+set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10:pw"
+set $ws10 "10"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -129,9 +129,9 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 assign [app_id="alacritty"] 1:dev
-assign [app_id="firefox"] 2:firefox
-assign [app_id="chromium"] 8:chromium
-assign [app_id="keepassxc"] 10:pw
+assign [app_id="firefox"] 2
+assign [app_id="chromium"] 8
+assign [app_id="keepassxc"] 10
 
 exec swaymsg "workspace 1:dev; exec alacritty -e zellij a -c dev"
 exec swaymsg "workspace 2:firefox; exec firefox"
@@ -177,21 +177,22 @@ bindsym $mod+Mod1+w exec "~/.local/scripts/bin/change-wallpaper"
 bindsym $mod+Print exec "~/.local/scripts/bin/take-screenshot"
 bindsym $mod+t exec "~/.local/scripts/bin/change-theme"
 
-gaps inner 2
+gaps inner 5
+gaps outer 5
 
 blur enable
-corner_radius 2
-# shadows enable
-blur_passes 2
-blur_radius 2
+corner_radius 10
+shadows enable
+blur_passes 3
+blur_radius 3
 
 layer_effects "waybar" {
-  blur enable
+  blur disable
 }
 
 default_border pixel
 smart_borders 1
-smart_gaps on
+smart_gaps off
 
 bar {
         swaybar_command waybar

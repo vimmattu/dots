@@ -22,7 +22,8 @@ supported-systems = ["base16"]
 hook = """\
        cat %f |\
        sed -E \"s/^(set-face global Default) .*/\\1 \\"%\\opt{base05},default\\"/\" |\
-       sed -E \"s/^(set-face global (Whitespace|LineNumbers)) .*/\\1 \\"%\\opt{base01},default\\"/\" |\
+       sed -E \"s/^(set-face global (Whitespace)) .*/\\1 \\"%\\opt{base01},default\\"/\" |\
+       sed -E \"s/^(set-face global (LineNumbers)) .*/\\1 \\"%\\opt{base04},default\\"/\" |\
        sed -E \"s/^(set-face global BufferPadding) .*/\\1 \\"%\\opt{base04},default\\"/\" |\
        sed -E \"s/^(set-face global MenuForground) .*/\\1 \\"%\\opt{base04},%\\opt{base01}+b\\"/\" |\
        sed -E \"s/^(set-face global (MenuBackground|Information)) .*/\\1 \\"%\\opt{base01},%\\opt{base04}\\"/\" \

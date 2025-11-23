@@ -1,11 +1,12 @@
 [general]
 import = [
-	"~/.config/alacritty/theme.toml",
-	"~/.config/alacritty/opacity.toml"
+	"~/.config/alacritty/opacity.toml",
+	"~/.config/alacritty/themes/noctalia.toml"
 ]
 
 [window]
-padding={x = 15}
+padding = { x = 15 }
+opacity = 0.9
 
 [font]
 size = 15

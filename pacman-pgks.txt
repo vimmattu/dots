@@ -52,3 +52,10 @@ inotify-tools
 grc
 htop
 rofi-wayland
+noctalia-shell
+niri
+matugen-git
+cava
+wlsunset
+xdg-desktop-portal
+evolution-data-server

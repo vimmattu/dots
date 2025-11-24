@@ -86,6 +86,10 @@
             ],
             "right": [
                 {
+                    "displayMode": "onhover",
+                    "id": "KeyboardLayout"
+                },
+                {
                     "id": "ScreenRecorder"
                 },
                 {
@@ -218,7 +222,7 @@
         "animationSpeed": 1,
         "avatarImage": "~/.face",
         "compactLockScreen": true,
-        "dimmerOpacity": 0.25,
+        "dimmerOpacity": 0.5,
         "enableShadows": true,
         "forceBlackScreenCorners": false,
         "language": "",
@@ -383,7 +387,7 @@
         "fillMode": "crop",
         "hideWallpaperFilenames": false,
         "monitors": [],
-        "overviewEnabled": false,
+        "overviewEnabled": true,
         "panelPosition": "follow_bar",
         "randomEnabled": false,
         "randomIntervalSec": 300,

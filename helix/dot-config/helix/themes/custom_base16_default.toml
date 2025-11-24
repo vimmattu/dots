@@ -1,3 +1,7 @@
 inherits = "base16_default"
 "ui.statusline" = "light-gray"
 "ui.statusline.inactive" = "gray"
+"ui.gutter" = {}
+"ui.linenr" = "gray"
+"ui.linenr.selected" = "light-gray"
+"ui.virtual.jump-label" = { fg = "black", bg = "light-gray" }

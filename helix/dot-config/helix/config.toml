@@ -7,3 +7,29 @@ line-number = "relative"
 insert = "bar"
 normal = "block"
 select = "underline"
+
+[keys.normal]
+- = [
+  ":sh rm -f /tmp/9790a23c-6e3d-4d47-9f20-2513dc04b2cf",
+  ":insert-output yazi '%{buffer_name}' --chooser-file=/tmp/9790a23c-6e3d-4d47-9f20-2513dc04b2cf",
+  ":insert-output echo \"x1b[?1049h\" > /dev/tty",
+  ":open %sh{cat /tmp/9790a23c-6e3d-4d47-9f20-2513dc04b2cf}",
+  ":redraw",
+  ":reload-all",
+  ":set mouse false",
+  ":set mouse true",
+]
+C-l = [
+  ":sh rm -f /tmp/bceae2a5-1a92-4c7e-82be-5a489bf4a96c",
+  ":write-all",
+  ":new",
+  ":insert-output lazygit",
+  ":insert-output echo \"x1b[?1049h\" > /dev/tty",
+  ":buffer-close!",
+  ":open %sh{cat /tmp/bceae2a5-1a92-4c7e-82be-5a489bf4a96c}",
+  ":redraw",
+  ":reload-all",
+  ":set mouse false",
+  ":set mouse true",
+]
+C-b = ":sh git blame -L %{cursor_line},%{cursor_line} %{buffer_name}"

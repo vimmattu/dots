@@ -80,22 +80,15 @@
                     "id": "MediaMini",
                     "maxWidth": 145,
                     "scrollingMode": "hover",
-                    "showAlbumArt": false,
+                    "showAlbumArt": true,
                     "showArtistFirst": true,
                     "showProgressRing": true,
-                    "showVisualizer": false,
+                    "showVisualizer": true,
                     "useFixedWidth": false,
                     "visualizerType": "linear"
                 }
             ],
             "right": [
-                {
-                    "displayMode": "onhover",
-                    "id": "KeyboardLayout"
-                },
-                {
-                    "id": "ScreenRecorder"
-                },
                 {
                     "blacklist": [
                     ],
@@ -104,6 +97,17 @@
                     "id": "Tray",
                     "pinned": [
                     ]
+                },
+                {
+                    "displayMode": "onhover",
+                    "id": "VPN"
+                },
+                {
+                    "displayMode": "onhover",
+                    "id": "KeyboardLayout"
+                },
+                {
+                    "id": "DarkMode"
                 },
                 {
                     "hideWhenZero": true,
@@ -226,7 +230,7 @@
         "animationDisabled": false,
         "animationSpeed": 1,
         "avatarImage": "~/.face",
-        "compactLockScreen": true,
+        "compactLockScreen": false,
         "dimmerOpacity": 0.5,
         "enableShadows": true,
         "forceBlackScreenCorners": false,
@@ -304,7 +308,7 @@
         "videoSource": "portal"
     },
     "sessionMenu": {
-        "countdownDuration": 10000,
+        "countdownDuration": 2000,
         "enableCountdown": true,
         "position": "center",
         "powerOptions": [
@@ -320,7 +324,7 @@
             },
             {
                 "action": "hibernate",
-                "countdownEnabled": true,
+                "countdownEnabled": false,
                 "enabled": true
             },
             {

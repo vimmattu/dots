@@ -63,3 +63,5 @@ xdg-desktop-portal-gnome
 qt6ct
 adw-gtk-theme
 nwg-look
+zoxide
+chafa

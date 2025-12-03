@@ -1,20 +1,6 @@
 [general]
 import = [
-	"~/.config/alacritty/opacity.toml",
-	"~/.config/alacritty/themes/noctalia.toml"
+	"~/.config/alacritty/themes/noctalia.toml",
+	"~/.config/alacritty/defaults.toml",
+	"~/.config/alacritty/overrides.toml"
 ]
-
-[window]
-padding = { x = 15 }
-opacity = 0.9
-
-[font]
-size = 15
-normal = { family = "IosevkaTerm Nerd Font Mono", style = "Regular" }
-italic = { family = "IosevkaTerm Nerd Font Mono", style = "Italic" }
-bold = { family = "IosevkaTerm Nerd Font Mono", style = "Bold" }
-bold_italic = { family = "IosevkaTerm Nerd Font Mono", style = "Italic Bold" }
-# normal = { family = "Terminess Nerd Font Mono", style = "Regular" }
-# italic = { family = "Terminess Nerd Font Mono", style = "Italic" }
-# bold = { family = "Terminess Nerd Font Mono", style = "Bold" }
-# bold_italic = { family = "Terminess Nerd Font Mono", style = "Italic Bold" }

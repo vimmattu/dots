@@ -24,9 +24,9 @@
         "volumeStep": 5
     },
     "bar": {
-        "backgroundOpacity": 0,
+        "backgroundOpacity": 0.5,
         "capsuleOpacity": 1,
-        "density": "comfortable",
+        "density": "default",
         "exclusive": true,
         "floating": false,
         "marginHorizontal": 0.25,
@@ -34,7 +34,7 @@
         "monitors": [
         ],
         "outerCorners": true,
-        "position": "top",
+        "position": "right",
         "showCapsule": true,
         "widgets": {
             "center": [

@@ -1,0 +1,9 @@
+*
+!.gitignore
+!dot-config
+!dot-config/xfconf
+!dot-config/xfconf/xfce-perchannel-xml
+!dot-config/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
+!dot-config/xfconf/xfce-perchannel-xml/xfce4-panel.xml
+!dot-config/xfconf/xfce-perchannel-xml/xfwm4.xml
+!dot-config/xfconf/xfce-perchannel-xml/xfce4-appfinder.xml
